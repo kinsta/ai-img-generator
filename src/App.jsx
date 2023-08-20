@@ -17,7 +17,7 @@ const App = () => {
 			try {
 				setIsGenerating(true);
 				const response = await fetch(
-					'http://localhost:8080/api',
+					'/api',
 					{
 						method: 'POST',
 						headers: {
