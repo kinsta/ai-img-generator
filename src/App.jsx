@@ -14,36 +14,7 @@ const App = () => {
 	});
 
 	const generateImage = async (prompt, setPrompt) => {
-		if (prompt) {
-			try {
-				setIsGenerating(true);
-				const response = await fetch(
-					'http://localhost:8080/api',
-					{
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-						},
-						body: JSON.stringify({
-							prompt,
-						}),
-					}
-				);
-
-				const data = await response.json();
-				setGeneratedImage({
-					photo: `data:image/jpeg;base64,${data.photo}`,
-					altText: prompt,
-				});
-			} catch (err) {
-				alert(err);
-			} finally {
-				setPrompt('');
-				setIsGenerating(false);
-			}
-		} else {
-			alert('Please provide proper prompt');
-		}
+		// interact with API
 	};
 
 	return (
