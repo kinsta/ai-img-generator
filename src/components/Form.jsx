@@ -2,8 +2,6 @@ import { FaRandom } from 'react-icons/fa';
 import { getRandomPrompt } from '../utils';
 import { useState } from 'react';
 
-import PropTypes from 'prop-types';
-
 const Form = ({ generateImage }) => {
     const [prompt, setPrompt] = useState('')
 
@@ -13,20 +11,27 @@ const Form = ({ generateImage }) => {
     }
 
     return (
-        <div className="sm:w-1/2 w-full">
-            <label htmlFor="prompt" className='font-medium mb-1'>Prompt</label>
-            <div className="relative h-full">
-                <input type="text" value={prompt} onChange={(e) => setPrompt(e.target.value)} className="w-full p-4 mb-3 rounded" placeholder="A surreal cityscape at sunset with floating islands..." />
-                <FaRandom onClick={handleRandomPrompt} className='absolute top-3 right-2 bg-[#2F1C6B] w-8 h-8 text-white rounded-full p-2 text-xl cursor-pointer' />
+        <div className="form-section">
+            <div className="container-title">
+                <h1 className="title">AI-Image Generator</h1>
+                <p className="description">
+                    Ignite your imagination using the power of Artificial Intelligence (AI). Craft mesmerizing images through vivid text descriptions.
+                </p>
             </div>
-            <button className="w-full p-4 bg-[#2F1C6B] text-white rounded" onClick={() => generateImage(prompt, setPrompt)}>Generate</button>
-        </div>
+            <div className="form-container">
+                <div className="input-div">
+                    <label>Prompt</label>
+                    <span>Type a very descriptive text of the image you wish to generate.</span>
+                    <div className="input-cont">
+                        <textarea name="prompt" id="" cols="30" rows="4" value={prompt} onChange={(e) => setPrompt(e.target.value)} className="form-control" placeholder="A surreal cityscape at sunset with floating islands..."></textarea>
+                        <FaRandom onClick={handleRandomPrompt} className='random-icon' />
+                    </div>
+                </div>
+                <button className='btn' onClick={() => generateImage(prompt, setPrompt)}>Generate Image</button>
+            </div>
+        </div >
     )
 }
-
-Form.propTypes = {
-    generateImage: PropTypes.func,
-};
 
 
 export default Form
