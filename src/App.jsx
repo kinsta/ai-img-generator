@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 const App = () => {
 	// const [isLoading, setIsLoading] = useState(false)
-	const [isGenerating, setIsGenerating] = useState(true);
+	const [isGenerating, setIsGenerating] = useState(false);
 	const [generatedImage, setGeneratedImage] = useState({
 		photo: null,
 		altText: null,
