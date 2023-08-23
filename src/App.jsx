@@ -1,13 +1,13 @@
 import { Form, Footer, Header } from './components';
 import preview from './assets/preview.png';
-import Loader from './assets/loader-3.gif'
+import Loader from './assets/loader.gif'
 import { downloadImage } from './utils';
 
 import { useState } from 'react';
 
 const App = () => {
 	// const [isLoading, setIsLoading] = useState(false)
-	const [isGenerating, setIsGenerating] = useState(false);
+	const [isGenerating, setIsGenerating] = useState(true);
 	const [generatedImage, setGeneratedImage] = useState({
 		photo: null,
 		altText: null,
